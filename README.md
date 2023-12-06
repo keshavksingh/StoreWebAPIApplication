@@ -8,7 +8,8 @@ This repository is an allustration of .Net Core Web API Sdk 8.0 (C#)
  - Asynchronous Programming
  - Running Custom Validations for POST, PUT, DELETEs (CUD)
  - Filtering, Sorting, Pagination
- - Versioning
- - Authentication and Authorization
+ - Versioning - APIs for backward compatibility
+ - Authentication (Azure AD) and Authorization (Reader - AD (To authorize for only GET requests), ReadWrite - AD (To authorize all), Write - AD (To authorize POST, PUT, DELETE))
  - Explicitly Policy Based and Role Based Authorization
  - Key Vault Security
+ - App Service and Azure API Management Deployment
