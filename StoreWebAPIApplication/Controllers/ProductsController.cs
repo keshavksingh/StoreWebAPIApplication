@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Asp.Versioning;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +12,12 @@ using StoreWebAPIApplication.Repositories;
 
 namespace StoreWebAPIApplication.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [Authorize]
+    //[Authorize(Roles = "webstoreapi.RW,webstoreapi.Reader,Admin")]
+    [ApiVersion(1.0)]
+    [Route("api/version={version:apiVersion}/[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly ProductStoreDbContext dbProductContext;
@@ -25,10 +31,19 @@ namespace StoreWebAPIApplication.Controllers
             this.mapper = mapper;
         }
         [HttpGet]
+        //[Authorize]
+        //[Authorize(Roles = "webstoreapi.RW,webstoreapi.Reader,Admin")]
+        [Authorize(Policy = "ReadPolicy")]
         public async Task<IActionResult> GetAll([FromQuery] string? sortBy, [FromQuery] bool isAscending, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize=1000) 
         {
+            //var whiteList = new List<string>() { "7213687e-488e-4a09-8188-e3abd4523539" };
+            //var appId = HttpContext.User.Claims.First(c=>c.Type=="appid").Value;
+            //if (!whiteList.Contains(appId))
+            //{ return new ForbidResult(); }
+            //else
+            //{
             //Get Data From Domain Model
-            var ProductsDomain = await productRepository.GetAllAsync(sortBy,isAscending,pageNumber,pageSize);
+            var ProductsDomain = await productRepository.GetAllAsync(sortBy, isAscending, pageNumber, pageSize);
             //Convert Domain Model and Map to DTOs
             //var ProductsDto = new List<ProductDto>();
             //foreach (var product in ProductsDomain) 
@@ -41,12 +56,17 @@ namespace StoreWebAPIApplication.Controllers
             //    });
             //}
             var ProductsDto = mapper.Map<List<ProductDto>>(ProductsDomain);
-            
+
             return Ok(ProductsDto);
+            //}
 
         }
         [HttpGet]
         [Route("{ProductId:guid}")]
+        //[Authorize]
+        //[TypeFilter(typeof(CustomAuthorizationAttribute))]
+        //[Authorize(Roles = "webstoreapi.RW,Admin")]
+        [Authorize(Policy = "ReadPolicy")]
         public async Task<IActionResult> GetById([FromRoute]Guid ProductId) 
         {
             var ProductsDomain = await productRepository.GetByProductIdAsync(ProductId);
@@ -69,6 +89,9 @@ namespace StoreWebAPIApplication.Controllers
         }
         [HttpPost]
         [ValidateModel]
+        //[Authorize]
+        //[Authorize(Roles = "webstoreapi.RW,Admin")]
+        [Authorize(Policy = "WritePolicy")]
         public async Task<IActionResult> Create([FromBody] AddProductDto addProductDto) 
         {
 
@@ -99,6 +122,9 @@ namespace StoreWebAPIApplication.Controllers
         //Update Product
         [HttpPut]
         [Route("{ProductId:guid}")]
+        //[Authorize]
+        //[Authorize(Roles = "webstoreapi.RW,Admin")]
+        [Authorize(Policy = "WritePolicy")]
         [ValidateModel]
         public async Task<IActionResult> Update([FromRoute]Guid ProductId, [FromBody] UpdateProductRequestDto updateProdReqDto)
         {
@@ -130,6 +156,9 @@ namespace StoreWebAPIApplication.Controllers
         }
         //Delete Product
         [HttpDelete]
+        //[Authorize]
+        //[Authorize(Roles = "webstoreapi.RW,Admin")]
+        [Authorize(Policy = "WritePolicy")]
         [Route("{ProductId:guid}")]
         public async Task<IActionResult> Delete([FromRoute]Guid ProductId) 
         {
