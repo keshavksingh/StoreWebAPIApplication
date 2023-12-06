@@ -6,7 +6,7 @@ This repository is an allustration of .Net Core Web API Sdk 8.0 (C#)
  - LINQ concepts, 
  - It illustrates CRUD (GET, POST, PUT, DELETE) operations
  - Asynchronous Programming
- - Running Custom Validations for POST, PUT, DELETEs
+ - Running Custom Validations for POST, PUT, DELETEs (CUD)
  - Filtering, Sorting, Pagination
  - Versioning
  - Authentication and Authorization
