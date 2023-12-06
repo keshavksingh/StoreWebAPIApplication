@@ -10,5 +10,5 @@ This repository is an allustration of .Net Core Web API Sdk 8.0 (C#)
  - Filtering, Sorting, Pagination
  - Versioning
  - Authentication and Authorization
- - Explicitly Policy Based Authorization
+ - Explicitly Policy Based and Role Based Authorization
  - Key Vault Security
