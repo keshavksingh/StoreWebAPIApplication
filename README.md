@@ -18,6 +18,9 @@ Web APP API Service
 ![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/6da0801b-ab6b-4790-b84d-001d1c957287)
 Authorization
 ![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/8a270382-d6e4-4ce2-ad9b-b2479446ab72)
+Sorting, Filtering, Pagination
+![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/3b43c26f-a5d5-4a4e-b517-ba3239eb5be8)
+
 
 APIM
 ![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/466ef0af-9a0d-49e4-8249-e070be650677)
