@@ -18,4 +18,6 @@ Web APP API Service
 ![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/6da0801b-ab6b-4790-b84d-001d1c957287)
 APIM
 ![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/466ef0af-9a0d-49e4-8249-e070be650677)
+APIM Query
+![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/f6c61607-f212-400f-b56e-bd26f7666199)
 
