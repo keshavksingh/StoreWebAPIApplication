@@ -13,3 +13,9 @@ This repository is an allustration of .Net Core Web API Sdk 8.0 (C#)
  - Explicitly Policy Based and Role Based Authorization
  - Key Vault Security
  - App Service and Azure API Management Deployment
+
+Web APP API Service
+![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/6da0801b-ab6b-4790-b84d-001d1c957287)
+APIM
+![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/466ef0af-9a0d-49e4-8249-e070be650677)
+
