@@ -12,7 +12,7 @@ This repository is an allustration of .Net Core Web API Sdk 8.0 (C#)
  - Authentication (Azure AD) and Authorization (Reader - AD (To authorize for only GET requests), ReadWrite - AD (To authorize all), Write - AD (To authorize POST, PUT, DELETE))
  - Explicitly Policy Based and Role Based Authorization
  - Key Vault Security
- - App Service and Azure API Management Deployment
+ - Deployment with layers on Azure Web App Service and Azure API Management
 
 ## Web APP API Service
 ![image](https://github.com/keshavksingh/StoreWebAPIApplication/assets/41631964/6da0801b-ab6b-4790-b84d-001d1c957287)
